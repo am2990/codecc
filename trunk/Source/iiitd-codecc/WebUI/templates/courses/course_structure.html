@@ -1,0 +1,337 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<meta name="HandheldFriendly" content="true" />
+<title>Form</title>
+<link type="text/css" rel="stylesheet" href="../css/styles/form.css?v3.0.1511"/>
+<link href="css/calendarview.css?v3.0.1511" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="../css/styles/pastel.css" />
+<style type="text/css">
+    .form-label{
+        width:150px !important;
+    }
+    .form-label-left{
+        width:150px !important;
+    }
+    .form-line{
+        padding:10px;
+    }
+    .form-label-right{
+        width:150px !important;
+    }
+    .form-all{
+        width:690px;
+        background:rgb(207, 204, 200) url(images/noises/noise.png);
+        color:rgb(82, 75, 58) !important;
+        font-family:Tahoma;
+        font-size:13px;
+    }
+</style>
+
+<script src="../js/prototype.js?v=3.0.1511" type="text/javascript"></script>
+<script src="../js/protoplus.js?v=3.0.1511" type="text/javascript"></script>
+<script src="../js/protoplus-ui.js?v=3.0.1511" type="text/javascript"></script>
+<script src="../js/jotform.js?v=3.0.1511" type="text/javascript"></script>
+<script src="../js/calendarview.js?v=3.0.1511" type="text/javascript"></script>
+<script type="text/javascript">
+var counter=17;
+var counter1=1;
+var counter2=2;
+	function addPercentageField(){
+			
+		  	var newdiv = document.createElement('li');
+  //        newdiv.innerHTML = "<label class=\"form-label-left\" id=\"label_"+counter+" for=\"input_"+counter+"\">Assessment Name</label><div id=\"cid_17\" class=\"form-input\">			<input type=\"text\" class=\"form-textbox\" id=\"input_"+counter+" name=\"AssessmentName"+ counter +" size=\"20\" />		</div>		<label class=\"form-label\" id=\"label_"+counter2+" for=\"input_"+counter2+"> Percentage Assigned</label>		<div id=\"cid_18\" class=\"form-input\">			<input type=\"text\" class=\"form-textbox validate[Numeric]\" id=\"input_"+counter2+" name=\"Assessment_Percentage"+counter2+" size="20" />		</div>";
+  			str="li_"+counter;
+  			counter+=1;
+  			alert("here " + counter);	
+          	divs=document.getElementById("div_percentage");
+			newdiv.setAttribute('class', 'form-line');
+			newdiv.setAttribute('id', 'str');          
+
+		  	str1="<label class='form-label-left' id='label_"+counter1+" for='input_"+counter1+"'>Assessment Name</label><div id='cid_17' class='form-input'>			<input type='text' class='form-textbox' id='input_"+counter1+" name='AssessmentName"+ counter1 +" size='20' />		</div>		<label class='form-label' id='label_"+counter2+" for='input_"+counter2+"> Percentage Assigned</label>		<div id='cid_18' class='form-input'>			<input type='text' class='form-textbox validate[Numeric]' id='input_"+counter2+" name='Assessment_Percentage"+counter2+" size='20' />		</div>";
+		  	newdiv.innerHTML=str1;
+		  	divs.appendChild(newdiv);			 
+          	//divs.append(str1);
+          	counter1+=2;
+          	counter2+=2;
+	};
+   JotForm.setConditions([{"type":"field","link":"Any","terms":[{"field":"21","operator":"equals","value":"Absolute"}],"action":{"field":"22","visibility":"Show"}},{"type":"field","link":"Any","terms":[{"field":"21","operator":"equals","value":"Absolute"}],"action":{"field":"23","visibility":"Show"}},{"type":"field","link":"Any","terms":[{"field":"21","operator":"equals","value":"Absolute"}],"action":{"field":"24","visibility":"Show"}},{"type":"field","link":"Any","terms":[{"field":"21","operator":"equals","value":"Absolute"}],"action":{"field":"25","visibility":"Show"}},{"type":"field","link":"Any","terms":[{"field":"21","operator":"equals","value":"Absolute"}],"action":{"field":"27","visibility":"Show"}},{"type":"field","link":"Any","terms":[{"field":"21","operator":"equals","value":"Absolute"}],"action":{"field":"26","visibility":"Show"}},{"type":"field","link":"Any","terms":[{"field":"21","operator":"equals","value":"Absolute"}],"action":{"field":"28","visibility":"Show"}},{"type":"field","link":"Any","terms":[{"field":"21","operator":"equals","value":"Relative"}],"action":{"field":"29","visibility":"Show"}},{"type":"field","link":"Any","terms":[{"field":"21","operator":"equals","value":"Mixed of Both"}],"action":{"field":"30","visibility":"Show"}}]);
+   JotForm.init(function(){
+      $('input_22_to').spinner({ imgPath:'images/', width: '60', allowNegative: false, addAmount: 1, value:'0' });
+      $('input_22_from').spinner({ imgPath:'images/', width: '60', allowNegative: false, addAmount: 1, value:'0' });
+      $('input_23_to').spinner({ imgPath:'images/', width: '60', allowNegative: false, addAmount: 1, value:'0' });
+      $('input_23_from').spinner({ imgPath:'images/', width: '60', allowNegative: false, addAmount: 1, value:'0' });
+      $('input_24_to').spinner({ imgPath:'images/', width: '60', allowNegative: false, addAmount: 1, value:'0' });
+      $('input_24_from').spinner({ imgPath:'images/', width: '60', allowNegative: false, addAmount: 1, value:'0' });
+      $('input_25_to').spinner({ imgPath:'images/', width: '60', allowNegative: false, addAmount: 1, value:'0' });
+      $('input_25_from').spinner({ imgPath:'images/', width: '60', allowNegative: false, addAmount: 1, value:'0' });
+      $('input_26_to').spinner({ imgPath:'images/', width: '60', allowNegative: false, addAmount: 1, value:'0' });
+      $('input_26_from').spinner({ imgPath:'images/', width: '60', allowNegative: false, addAmount: 1, value:'0' });
+      $('input_27_to').spinner({ imgPath:'images/', width: '60', allowNegative: false, addAmount: 1, value:'0' });
+      $('input_27_from').spinner({ imgPath:'images/', width: '60', allowNegative: false, addAmount: 1, value:'0' });
+      $('input_28_to').spinner({ imgPath:'images/', width: '60', allowNegative: false, addAmount: 1, value:'0' });
+      $('input_28_from').spinner({ imgPath:'images/', width: '60', allowNegative: false, addAmount: 1, value:'0' });
+   });
+</script>
+</head>
+<body>
+<form class="jotform-form" action="/AddNewCourse" method="post" name="form_12840926498" id="12840926498" accept-charset="utf-8" target="_top">
+  <input type="hidden" name="formID" value="12840926498" />
+  <div class="form-all">
+    <ul class="form-section">
+      <li id="cid_1" class="form-input-wide">
+        <div class="form-header-group">
+          <h2 id="header_1" class="form-header">
+            Enter Course Details
+          </h2>
+        </div>
+      </li>
+      <li class="form-line" id="id_3">
+        <label class="form-label-left" id="label_3" for="input_3">
+          Course Name<span class="form-required">*</span>
+        </label>
+        <div id="cid_3" class="form-input">
+          <input type="text" class="form-textbox validate[required]" id="input_3" name="q3_courseName" size="20" value="{{CourseName}}"/>
+        </div>
+      </li>
+      <li class="form-line" id="id_4">
+        <label class="form-label-left" id="label_4" for="input_4">
+          Course Number<span class="form-required">*</span>
+        </label>
+        <div id="cid_4" class="form-input">
+          <input type="text" class="form-textbox validate[required]" id="input_4" name="q4_courseNumber" size="20" value="{{CourseNum}}"/>
+        </div>
+      </li>
+      <li class="form-line" id="id_5">
+        <label class="form-label-left" id="label_5" for="input_5"> Course TA </label>
+        <div id="cid_5" class="form-input">
+          <input type="text" class="form-textbox" id="input_5" name="q5_courseTa" size="20" value="{{CourseTA}}"/>
+        </div>
+      </li>
+      <li class="form-line" id="id_6">
+        <label class="form-label-left" id="label_6" for="input_6">
+          Credits<span class="form-required">*</span>
+        </label>
+        <div id="cid_6" class="form-input">
+          <input type="text" class="form-textbox validate[required, Numeric]" id="input_6" name="q6_credits" size="20" value="{{Credits}}"/>
+        </div>
+      </li>
+      <li class="form-line" id="id_7">
+        <label class="form-label-left" id="label_7" for="input_7"> Class Timings </label>
+        <div id="cid_7" class="form-input">
+          <input type="text" class="form-textbox" id="input_7" name="q7_classTimings" size="20" value="{{ClassTimings}}"/>
+        </div>
+      </li>
+      <li class="form-line" id="id_8">
+        <label class="form-label-left" id="label_8" for="input_8"> Class 
+		Location </label>
+        <div id="cid_8" class="form-input">
+          <input type="text" class="form-textbox" id="input_8" name="q8_classLocation" size="20" value="{{Location}}"/>
+        </div>
+      </li>
+      <li class="form-line" id="id_9">
+        <label class="form-label-left" id="label_9" for="input_9"> No. of 
+		Lectures </label>
+        <div id="cid_9" class="form-input">
+          <input type="text" class="form-textbox validate[Numeric]" id="input_9" name="q9_noOf9" size="20" value="{{NumLectures}}"/>
+        </div>
+      </li>
+        <li class="form-line" id="id_10">
+		<label class="form-label-left" id="label_10" for="input_10">Instructor&#39;s 
+		Office Hours </label>
+		<div id="cid_10" class="form-input">
+			<input type="text" class="form-textbox" id="input_10" name="q10_instructorsOffice" size="20" value="{{OfficeHours}}"/>
+		</div>
+		</li>
+		<li class="form-line" id="id_11">
+		<label class="form-label-left" id="label_11" for="input_11">Course 
+		Website </label>
+		<div id="cid_11" class="form-input">
+			<input type="text" class="form-textbox" id="input_11" name="q11_courseWebsite" size="20" value="{{Website}}"/>
+		</div>
+		</li>
+		<li class="form-line" id="id_12">
+		<label class="form-label-left" id="label_12" for="input_12">Course 
+		Mailing List </label>
+		<div id="cid_12" class="form-input">
+			<input type="text" class="form-textbox validate[Email]" id="input_12" name="q12_courseMailing" size="20" value="{{MailingList}}"/>
+		</div>
+		</li>
+		<li class="form-line" id="id_13">
+		<label class="form-label-left" id="label_13" for="input_13">Prescribed 
+		Textbook </label>
+		<div id="cid_13" class="form-input">
+			<input type="text" class="form-textbox" id="input_13" name="q13_prescribedTextbook" size="20" value="{{TextBook}}"/>
+		</div>
+		</li>
+		<li class="form-line" id="id_18">
+		<div id="cid_18" class="form-input-wide">
+			<div id="text_18" class="form-html">
+				<p><span style="font-size: medium; color: #ffff00;"><strong>
+				COURSE STRUCTURE </strong></span></p>
+			</div>
+		</div>
+		</li>
+		<li class="form-line" id="id_19">
+		<div id="cid_19" class="form-input-wide">
+			<div id="text_19" class="form-html">
+				<p><strong><span style="font-size: small; color: #0000ff;">
+				Percentage Distribution</span> </strong></p>
+			</div>
+		</div>
+		</li>
+		
+		
+		<div id="div_percentage">
+		<li class="form-line" id="li_17">
+		<label class="form-label-left" id="label_17" for="input_17">Assessment Name</label>
+		<div id="cid_17" class="form-input">
+			<input type="text" class="form-textbox" id="input_17" name="q17_clickTo17" size="20" />
+		</div>
+		<label class="form-label" id="label_18" for="input_18"> Percentage Assigned</label>
+		<div id="cid_18" class="form-input">
+			<input type="text" class="form-textbox validate[Numeric]" id="input_18" name="q17_clickTo17" size="20" />
+		</div>
+		</li>
+		</div>
+		
+		
+		<li class="form-line" id="bu_li">
+		<div style="margin-left:156px" class="form-buttons-wrapper">
+				<button id="addAss" type="button" class="form-button" onclick="addPercentageField();">
+				Add New Assessment</button></div>
+		
+		</li>
+		
+		<li class="form-line" id="id_20">
+		
+		
+		
+		<div id="cid_20" class="form-input-wide">
+			<div id="text_20" class="form-html">
+				<p><span style="color: #0000ff;"><strong>
+				<span style="font-size: small;">Grading Policy</span> </strong>
+				</span></p>
+			</div>
+		</div>
+		</li>
+		<li class="form-line" id="id_21">
+		<label class="form-label-left" id="label_21" for="input_21">Select 
+		Policy<span class="form-required">*</span> </label>
+		<div id="cid_21" class="form-input">
+			<select class="form-dropdown validate[required]" style="width:150px" id="input_21" name="q21_selectPolicy">
+			<option></option>
+			<option selected="selected" value="Absolute">Absolute</option>
+			<option value="Relative">Relative</option>
+			<option value="Mixed of Both">Mixed of Both</option>
+			</select> </div>
+		</li>
+		<li class="form-line" id="id_22">
+		<label class="form-label-left" id="label_22" for="input_22">A </label>
+		<div id="cid_22" class="form-input">
+			<span class="form-sub-label-container">
+			<input class="form-textbox" type="number" id="input_22_from" name="q22_a[from]" />
+			<label class="form-sub-label" for="input_22_from" id="sublabel_from">
+			From </label></span><span class="form-sub-label-container">
+			<input class="form-textbox" type="number" id="input_22_to" name="q22_a[to]" />
+			<label class="form-sub-label" for="input_22_to" id="sublabel_to">To
+			</label></span></div>
+		</li>
+		<li class="form-line" id="id_23">
+		<label class="form-label-left" id="label_23" for="input_23">A- </label>
+		<div id="cid_23" class="form-input">
+			<span class="form-sub-label-container">
+			<input class="form-textbox" type="number" id="input_23_from" name="q23_a23[from]" />
+			<label class="form-sub-label" for="input_23_from" id="sublabel_from">
+			From </label></span><span class="form-sub-label-container">
+			<input class="form-textbox" type="number" id="input_23_to" name="q23_a23[to]" />
+			<label class="form-sub-label" for="input_23_to" id="sublabel_to">To
+			</label></span></div>
+		</li>
+		<li class="form-line" id="id_24">
+		<label class="form-label-left" id="label_24" for="input_24">B </label>
+		<div id="cid_24" class="form-input">
+			<span class="form-sub-label-container">
+			<input class="form-textbox" type="number" id="input_24_from" name="q24_b[from]" />
+			<label class="form-sub-label" for="input_24_from" id="sublabel_from">
+			From </label></span><span class="form-sub-label-container">
+			<input class="form-textbox" type="number" id="input_24_to" name="q24_b[to]" />
+			<label class="form-sub-label" for="input_24_to" id="sublabel_to">To
+			</label></span></div>
+		</li>
+		<li class="form-line" id="id_25">
+		<label class="form-label-left" id="label_25" for="input_25">B- </label>
+		<div id="cid_25" class="form-input">
+			<span class="form-sub-label-container">
+			<input class="form-textbox" type="number" id="input_25_from" name="q25_b25[from]" />
+			<label class="form-sub-label" for="input_25_from" id="sublabel_from">
+			From </label></span><span class="form-sub-label-container">
+			<input class="form-textbox" type="number" id="input_25_to" name="q25_b25[to]" />
+			<label class="form-sub-label" for="input_25_to" id="sublabel_to">To
+			</label></span></div>
+		</li>
+		<li class="form-line" id="id_26">
+		<label class="form-label-left" id="label_26" for="input_26">C </label>
+		<div id="cid_26" class="form-input">
+			<span class="form-sub-label-container">
+			<input class="form-textbox" type="number" id="input_26_from" name="q26_c[from]" />
+			<label class="form-sub-label" for="input_26_from" id="sublabel_from">
+			From </label></span><span class="form-sub-label-container">
+			<input class="form-textbox" type="number" id="input_26_to" name="q26_c[to]" />
+			<label class="form-sub-label" for="input_26_to" id="sublabel_to">To
+			</label></span></div>
+		</li>
+		<li class="form-line" id="id_27">
+		<label class="form-label-left" id="label_27" for="input_27">C- </label>
+		<div id="cid_27" class="form-input">
+			<span class="form-sub-label-container">
+			<input class="form-textbox" type="number" id="input_27_from" name="q27_c27[from]" />
+			<label class="form-sub-label" for="input_27_from" id="sublabel_from">
+			From </label></span><span class="form-sub-label-container">
+			<input class="form-textbox" type="number" id="input_27_to" name="q27_c27[to]" />
+			<label class="form-sub-label" for="input_27_to" id="sublabel_to">To
+			</label></span></div>
+		</li>
+		<li class="form-line" id="id_28">
+		<label class="form-label-left" id="label_28" for="input_28">D </label>
+		<div id="cid_28" class="form-input">
+			<span class="form-sub-label-container">
+			<input class="form-textbox" type="number" id="input_28_from" name="q28_d[from]" />
+			<label class="form-sub-label" for="input_28_from" id="sublabel_from">
+			From </label></span><span class="form-sub-label-container">
+			<input class="form-textbox" type="number" id="input_28_to" name="q28_d[to]" />
+			<label class="form-sub-label" for="input_28_to" id="sublabel_to">To
+			</label></span></div>
+		</li>
+		<li class="form-line" id="id_29">
+		<label class="form-label-left" id="label_29" for="input_29">Description 
+		For Your Relative Grading </label>
+		<div id="cid_29" class="form-input">
+			<textarea id="input_29" class="form-textarea" name="q29_descriptionFor" cols="40" rows="6"></textarea>
+		</div>
+		</li>
+		<li class="form-line" id="id_30">
+		<label class="form-label-left" id="label_30" for="input_30">Description 
+		For Your Mixed Grading </label>
+		<div id="cid_30" class="form-input">
+			<textarea id="input_30" class="form-textarea" name="q30_descriptionFor30" cols="40" rows="6"></textarea>
+		</div>
+		</li>
+		<li class="form-line" id="id_31">
+		<div id="cid_31" class="form-input-wide">
+			<div style="margin-left:156px" class="form-buttons-wrapper">
+				<button id="input_31" type="submit" class="form-submit-button">
+				Submit Form</button></div>
+		</div>
+		</li>
+		<li style="display:none">Should be Empty:
+		<input type="text" name="website" value="" /> </li>
+    </ul>
+  </div>
+  <input type="hidden" id="simple_spc" name="simple_spc" value="12840926498" />
+  <script type="text/javascript">
+  document.getElementById("si" + "mple" + "_spc").value = "12840926498-12840926498";
+  </script>
+</form></body>
+</html>

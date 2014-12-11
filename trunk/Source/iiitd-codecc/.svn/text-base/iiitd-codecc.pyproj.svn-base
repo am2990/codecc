@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{53086fd5-6a0f-4200-98e1-8696a0789157}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>
+    </StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <AssemblyName>iiitd-codecc</AssemblyName>
+    <Name>iiitd-codecc</Name>
+    <RootNamespace>iiitd-codecc</RootNamespace>
+    <SccProjectName>Svn</SccProjectName>
+    <SccProvider>SubversionScc</SccProvider>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccLocalPath>Svn</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="app.yaml" />
+    <Content Include="index.yaml" />
+    <Content Include="WebUI\CSS\calendarview.css" />
+    <Content Include="WebUI\CSS\foggycountry.css" />
+    <Content Include="WebUI\CSS\pastel.css" />
+    <Content Include="WebUI\CSS\style.css" />
+    <Content Include="WebUI\CSS\styles\form.css" />
+    <Content Include="WebUI\CSS\styles\pastel.css" />
+    <Content Include="WebUI\CSS\winterblues.css" />
+    <Content Include="WebUI\Images\ashish.jpg" />
+    <Content Include="WebUI\Images\defaultprofile.png" />
+    <Content Include="WebUI\Images\favicon.ico" />
+    <Content Include="WebUI\Images\header_logo.png" />
+    <Content Include="WebUI\Images\img01.png" />
+    <Content Include="WebUI\Images\img02.png" />
+    <Content Include="WebUI\Images\img03.gif" />
+    <Content Include="WebUI\JS\calendarview.js" />
+    <Content Include="WebUI\JS\jotform.js" />
+    <Content Include="WebUI\JS\location.js" />
+    <Content Include="WebUI\JS\protoplus-ui.js" />
+    <Content Include="WebUI\JS\protoplus.js" />
+    <Content Include="WebUI\JS\prototype.js" />
+    <Content Include="WebUI\templates\base.html" />
+    <Content Include="WebUI\templates\courses\AddNewCourse.html" />
+    <Content Include="WebUI\templates\courses\course_structure.html" />
+    <Content Include="WebUI\templates\faculty\faculty_courses_list.html" />
+    <Content Include="WebUI\templates\faculty_courses_list.html" />
+    <Content Include="WebUI\templates\User\NewUser.html" />
+    <Content Include="WebUI\templates\User\NewUserFrame.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Course.py" />
+    <Compile Include="main.py" />
+    <Compile Include="Person.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WebUI" />
+    <Folder Include="WebUI\CSS\" />
+    <Folder Include="WebUI\CSS\styles" />
+    <Folder Include="WebUI\Images\" />
+    <Folder Include="WebUI\JS" />
+    <Folder Include="WebUI\templates\" />
+    <Folder Include="WebUI\templates\faculty\" />
+    <Folder Include="WebUI\templates\courses" />
+    <Folder Include="WebUI\templates\User" />
+  </ItemGroup>
+</Project>

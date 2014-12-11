@@ -1,0 +1,26 @@
+{% extends "../base.html" %}
+{% block title %}IIITD-CODECC - {{firstname}} {{lastname}}'s courses{% endblock %}
+
+
+{% block menu %}
+
+<div id="header">
+		<div id="menu">
+			<ul>
+				{% for men in menu %}
+					{% ifequal men menu.0 %}
+    					<li><a href="{{men.1}}" class="first">{{men.0}}</a></li>
+					{% else %}
+    					<li><a href="{{men.1}}" >{{men.0}}</a></li>
+					{% endifequal %}
+				{% endfor %}
+			</ul>
+</div>
+{% endblock %}
+{% block content %}
+<br>
+<iframe src="/AddNewCourseFrame?CourseNum={{CourseNum}}"
+style=" border-width:0 " width="1250" height="1475" frameborder="0" scrolling="no">
+</iframe>
+{% endblock %}
+

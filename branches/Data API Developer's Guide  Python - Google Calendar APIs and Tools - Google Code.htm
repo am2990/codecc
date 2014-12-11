@@ -1,0 +1,987 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+  
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<title>Data API Developer&#39;s Guide: Python - Google Calendar APIs and Tools - Google Code</title>
+<script type="text/javascript"><!--
+(function(){function a(){this.t={};this.tick=function(c){this.t[c]=(new Date).getTime()};this.tick("start")}var b=new a;window.jstiming={Timer:a,load:b};if(window.external&&window.external.pageT)window.jstiming.pt=window.external.pageT;})();
+
+var _tocPath_ = '/html/apis/calendar/_toc.ezt';
+var codesite_token = '146650d804f3bbd8cbf639e48d31d1b5';
+var logged_in_user_email = 'apurv09064@iiitd.ac.in';
+//--></script>
+<link href="/css/codesite.pack.04102009.css" type="text/css" rel="stylesheet">
+<script src="/js/codesite_head.pack.04102009.js" type="text/javascript"></script>
+<script type="text/javascript">CODESITE_CSITimer['load'].tick('bhs');</script>
+<link rel="search" type="application/opensearchdescription+xml" title="Google Code" href="/osd.xml">
+
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/css/iehacks.css"><![endif]-->
+
+  <link href="/apis/calendar/css/local_extensions.css" type="text/css" rel="stylesheet">
+  </head>
+
+  <body class="gc-documentation">
+
+    <script type="text/javascript">
+var _gaq = _gaq || [];
+
+var cookiePath = '/apis/calendar/';
+if (cookiePath.lastIndexOf('.html') > cookiePath.lastIndexOf('/')) {
+  cookiePath = cookiePath.substring(0, cookiePath.lastIndexOf('/') + 1);
+};
+
+_gaq.push(
+
+
+    ['siteTracker._setAccount', 'UA-18071-1'],
+    ['siteTracker._setDomainName', 'code.google.com'],
+    ['siteTracker._trackPageview']
+);
+(function() {
+  var ga = document.createElement('script');
+  ga.type = 'text/javascript';
+  ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  (document.getElementsByTagName('head')[0] ||
+   document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+</script>
+
+
+<div id="gb">
+ <span>
+  
+   
+    <a href="#" id="multilogin-dropdown" onclick="return false;"><u><b>apurv09064@iiitd.ac.in</b></u> <small>&#9660;</small></a>
+    |
+   
+    <a href="/u/apurv09064@iiitd.ac.in/"
+       id="projects-dropdown" onclick="return false;"
+       ><span style="text-decoration:underline">My favorites</span> <span style="font-size:.75em;">&#9660;</span></a>
+    |
+  
+    <a id="lang-dropdown" href="/" onclick="return false;"><span style="text-decoration:underline">English</span> <span style="font-size:.75em;">&#9660;</span></a>
+  
+   
+    | <a href="http://www.google.com/accounts/Logout?continue=http%3A%2F%2Fcode.google.com%2Fapis%2Fcalendar%2Fdata%2F2.0%2Fdevelopers_guide_python.html" onclick="CODESITE_click('/gb/sc/signout');"><span style="text-decoration:underline">Sign out</span></a>
+   
+  
+ </span>
+</div>
+
+<div class="gbh" style="left:0px;"></div>
+<div class="gbh" style="right:0px;"></div>
+
+
+<div id="gc-container">
+<a id="top"></a>
+<div id="skipto">
+  
+  
+</div>
+
+<div id="gc-header">
+  <div id="logo"><a href="/">
+  
+  
+     <img src="/images/code_logo.gif" height="40" width="167" alt="Google Code" style="border:0;margin:3px 0 0 0;">
+  
+  
+  </a></div>
+  <div id="search">
+    <div id="searchForm">
+      <form id="cse" action="http://www.google.com/cse" accept-charset="utf-8" onsubmit="executeGSearch(document.getElementById('gsearchInput').value); return false;">
+      <noscript>
+      <input type="hidden" name="cref" value="http://code.google.com/cse/googlecode-context.xml">
+      </noscript>
+      <div id="gsc-search-box">
+        <input id="gsearchInput" type="text" name="q" maxlength="2048" class="gsc-input" autocomplete="off" title="Google Code Search" style="width:345px">
+        <div id="cs-searchresults" onclick="event.cancelBubble = true;"></div>
+        <input title="Search" id="gsearchButton" class="gsc-search-button" name="sa" value="Search" type="submit">
+        <div class="greytext">e.g. "adwords" or "open source"</div>
+      </div>
+      </form>
+    </div> <!-- end searchForm -->
+  </div> <!-- end search -->
+
+
+
+
+</div> <!-- end gc-header -->
+
+
+<div id="codesiteContent">
+
+<a id="gc-topnav-anchor"></a>
+<div id="gc-topnav">
+  <h1>Google Calendar APIs and Tools</h1>
+  <ul id="docs" class="gc-topnav-tabs">
+
+    <li id="home_link">
+      <a href="/apis/calendar/" title="Google Calendar APIs and Tools home page">Home</a>
+    </li>
+  
+    <li id="docs_link">
+      <a href="/apis/calendar/overview/" class="selected" title="Official Google Calendar APIs and Tools documentation">Docs</a>
+    </li>
+  
+    <li id="faq_link">
+      <a href="/apis/calendar/faq.html" title="Answers to frequently asked questions about Google Calendar APIs and Tools">FAQ</a>
+    </li>
+  
+    <li id="articles_link">
+      <a href="/apis/calendar/articles/" title="Focused articles and tutorials for Google Calendar APIs and Tools developers">Articles</a>
+    </li>
+  
+    <li>
+      <a href="http://googleappsdeveloper.blogspot.com/" title="Official Google Calendar APIs and Tools blog">Blog</a>
+    </li>
+  
+  <li><a href="http://www.twitter.com/GoogleAppsDev" title="GoogleAppsDev Twitter feed">Twitter</a></li>
+    <li>
+      <a href="/apis/calendar/community/forum.html" title="Google Calendar APIs and Tools developer forum">Forum</a>
+    </li>
+  
+    <li>
+      <a href="/apis/calendar/terms.html" title="Google Calendar APIs and Tools terms of service">Terms</a>
+    </li>
+  
+
+  
+  
+  
+  
+  <li><g:plusone size="small" count="false"></g:plusone>&nbsp;</li>
+</ul>
+</div> <!-- end gc-topnav -->
+
+
+    <div class="g-section g-tpl-170">
+
+      <a name="toc"></a>
+      <div class="g-unit g-first" id="gc-toc">
+        <ul>
+  <li><h2>Getting Started</h2>
+    <ul>
+      <li><a href="/apis/calendar/overview/">API Overview Guide</a></li>
+    </ul>
+  </li>
+</ul>
+<div class="line"></div>
+<ul>
+  <li><h2>Calendar Data API</h2>
+    <ul>
+      <li><a href="/apis/calendar/data/2.0/developers_guide.html">Developer's Guide</a></li>
+      <li>
+        <ul>
+          <li><span class="tlw-title">Version 2.0 <sup>(Current)</sup></span>
+            <ul>
+              <li><a href="/apis/calendar/data/2.0/developers_guide_protocol.html">Protocol Guide</a></li>
+              <li><a href="/apis/calendar/data/2.0/reference.html">Atom Reference</a></li>
+              <div class="line" style="margin:.6em 0 0 1em;"></div>
+              <li><a href="/apis/calendar/data/2.0/developers_guide_dotnet.html">.NET Guide</a></li>
+              <li><a href="/apis/calendar/data/2.0/developers_guide_java.html">Java Guide</a></li>
+              <li><a href="/apis/calendar/data/2.0/developers_guide_python.html">Python Guide</a></li>
+            </ul>
+          </li>
+          <li><span class="tlw-title">Version 1.0</span>
+            <ul>
+              <li><a href="/apis/calendar/data/1.0/developers_guide_protocol.html">Protocol Guide</a></li>
+              <li><a href="/apis/calendar/data/1.0/reference.html">Atom Reference</a></li>
+              <div class="line" style="margin:.6em 0 0 1em;"></div>
+              <li><a href="/apis/calendar/data/1.0/developers_guide_dotnet.html">.NET Guide</a></li>
+              <li><a href="/apis/calendar/data/1.0/developers_guide_java.html">Java Guide</a></li>
+              <li><a href="/apis/calendar/data/1.0/developers_guide_js.html">JavaScript Guide</a></li>
+              <li><a href="/apis/calendar/data/1.0/developers_guide_php.html">PHP Guide</a></li>
+              <li><a href="/apis/calendar/data/1.0/developers_guide_python.html">Python Guide</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="/apis/calendar/changelog.html">API Changelog</a></li>
+      <li><a href="/apis/calendar/code.html">Libraries and Code</a></li>
+    </ul>
+  </li>
+</ul>
+<div class="line"></div>
+<ul>
+  <li><h2>Community</h2>
+    <ul>
+      <li><a href="/apis/calendar/community/">Overview</a></li>
+      <li><a href="/apis/calendar/community/forum.html">Developer Forum</a></li>
+      <li><a href="/apis/calendar/community/downtime.html">Downtime Notifications</a></li>
+      <li><a href="http://code.google.com/a/google.com/p/apps-api-issues/issues/list?q=label:API-Calendar" target="_blank">Issue Tracker</a></li>
+      <li><img src="/apis/calendar/images/twitter-logo.gif" style="border:0;padding:0;margin:0;"> <a href="http://twitter.com/googlecalendar" target="_blank">Follow us on twitter</a></li>
+    </ul>
+  </li>
+</ul>
+<div class="line"></div>
+
+<ul>
+  <li><h2>Google Data Protocol</h2>
+    <ul>
+      <li><a href="/apis/gdata/docs/developers-guide.html">Developer's Guide</a></li>
+      <div class="line" style="margin:.6em 0 .3em 1.2em;"></div>
+      <li><a href="/apis/gdata/docs/batch.html">Batch Processing Guide</a></li>
+      <li><a href="/apis/gdata/docs/auth/overview.html">Authentication Guide</a>
+    </ul>
+  </li>
+</ul>
+      
+
+
+<div class="line"></div>
+<ul>
+  <li><h2>Calendar Gadgets (Labs)</h2>
+    <ul>
+      <li><a href="/apis/calendar/gadgets/event/">Event Gadgets</a>
+      <li><a href="/apis/calendar/gadgets/sidebar/">Sidebar Gadgets</a>
+    </ul>
+  </li>
+</ul>
+<div class="line"></div>
+<ul>
+  <li><h2>CalDAV (Labs)</h2>
+    <ul>
+      <li><a href="/apis/calendar/caldav/">Developer's Guide</a></li>
+    </ul>
+  </li>
+</ul>
+<div class="line"></div>
+<ul>
+  <li><h2>Publishing Tools</h2>
+    <ul>
+      <li><a href="http://www.google.com/calendar/embedhelper">Embeddable Calendar</a></li>
+      <li><a href="http://www.google.com/googlecalendar/event_publisher_guide.html">Event Publisher</a></li>
+    </ul>
+  </li>
+</ul>
+<div class="line"></div>
+<ul>
+  <li><h2>Additional Resources</h2>
+    <ul>
+      <li><a href="http://www.google.com/enterprise/marketplace/">Solutions Marketplace</a></li>
+      <li><a href="/apis/calendar/faq.html">FAQ</a></li>
+    </ul>
+  </li>
+</ul>
+
+      </div>
+
+      <div class="g-unit" id="gc-pagecontent">
+        <script type="text/javascript">CODESITE_docEarlyProcessing();</script>
+        <h1 class="page_title">Data API Developer&#39;s Guide: Python</h1>
+
+
+    <img style="float:right; margin-left:10px; margin-bottom:5px;" src="/apis/calendar/images/data-api-150.png">
+
+    <p>Google Calendar allows client applications to view and update calendar events in the form of Google Data API feeds. Your client application can use the Google Calendar Data API to create new events, edit or delete existing events, and query for events that match particular criteria.</p>
+    <p>There are many possible uses for the Calendar Data API. For example, you can create a web front end for your group's calendar that uses Google Calendar as a back end. Or you can generate a public calendar for Google Calendar to display, based on your organization's event database. Or you can search relevant calendars to display a list of upcoming events on those calendars.</p>
+    <p>This document provides detailed examples for using the <a href="http://code.google.com/p/gdata-python-client/">Python Client Library</a> to work with the Google Calendar service. For help setting up the client library, see the <a href="/apis/gdata/articles/python_client_lib.html">Getting Started Guide</a>. You will find examples of adding events, updating events, deleting events and querying events.  If you're interested in understanding more about the underlying protocol used by the Python Client Library to interact with the Calendar Data API, please see the <a href="developers_guide_protocol.html">protocol tab</a>.</p>
+
+    <h1>Contents</h1>
+    <div class="g-section g-tpl-50-50">
+      <div class="g-unit g-first">
+        <ol class="toc">
+          <li><a href="#Audience">Audience</a></li>
+          <li><a href="#GettingStarted">Getting started</a></li>
+          <li><a href="#Auth">Authenticating to the Calendar service</a>
+            <ol class="toc">
+              <li><a href="#AuthAuthSub">AuthSub proxy authentication</a></li>
+              <li><a href="#AuthClientLogin">ClientLogin username/password authentication</a></li>
+              <li><a href="#AuthMagicCookie">Magic cookie authentication</a></li>
+            </ol>
+          </li>
+          <li><a href="#RetrievingCalendars">Retrieving calendar lists</a>
+            <ol>
+              <li><a href="#RetrievingAllCalendars">Retrieving all calendars</a></li>
+              <li><a href="#RetrievingOwnCalendars">Retrieving only calendars that a user owns</a></li>
+            </ol>
+          </li>
+          <li><a href="#ManagingCalendars">Managing calendars</a>
+            <ol>
+              <li><a href="#CreatingCalendars">Creating new calendars</a></li>
+              <li><a href="#UpdatingCalendars">Updating existing calendars</a></li>
+              <li><a href="#DeletingCalendars">Deleting calendars</a></li>
+            </ol>
+          </li>
+          <li><a href="#ManagingSubscriptions">Managing subscriptions to calendars</a>
+            <ol>
+              <li><a href="#AddingSubscriptions">Adding new subscriptions</a></li>
+              <li><a href="#UpdatingSubscriptions">Updating calendar subscriptions</a></li>
+              <li><a href="#DeletingSubscriptions">Deleting subscriptions</a></li>
+            </ol>
+          </li>
+          <li><a href="#RetrievingEvents">Retrieving events</a>
+            <ol class="toc">
+              <li><a href="#RetrievingWithoutQuery">Retrieving events without query parameters</a></li>
+              <li><a href="#RetrievingDateRange">Retrieving events for a specified date range</a></li>
+              <li><a href="#RetrievingWithQuery">Retrieving events matching a full text query</a></li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+      <div class="g-unit">
+        <ol class="toc">
+          <li><a href="#CreatingEvents">Creating events</a>
+            <ol class="toc">
+              <li><a href="#CreatingSingle">Creating single-occurrence events</a></li>
+              <li><a href="#CreatingQuickAdd">Creating quick add events</a></li>
+              <li><a href="#CreatingGadgets">Creating Calendar Event Gadgets</a></li>
+              <li><a href="#CreatingRecurring">Creating recurring events</a></li>
+            </ol>
+          </li>
+          <li><a href="#UpdatingEvents">Updating events</a></li>
+          <li><a href="#DeletingEvents">Deleting events</a></li>
+          <li><a href="#SharingACalendar">Sharing calendars</a>
+            <ol class="toc">
+              <li><a href="#RetrieveAcl">Retrieving access control lists</a></li>
+              <li><a href="#AddAcl">Adding a user to an access control list</a></li>
+              <li><a href="#UpdateAcl">Updating a user's role in an access control list</a></li>
+              <li><a href="#DeleteAcl">Removing a user from an access control list</a></li>
+            </ol>
+          </li>
+          <li><a href="#AdditionalOps">Additional operations</a>
+            <ol class="toc">
+              <li><a href="#ExtendedProps">Extended properties</a></li>
+              <li><a href="#Reminders">Reminders and Notifications</a></li>
+            </ol>
+          </li>
+          <li><a href="#ImprovingPerformance">Improving performance</a>
+            <ol>
+              <li><a href="#PartialResponse">Requesting a partial response</a> <span class="exp-feat">(Experimental <img src="/images/labs-11.png" />)</span><span class="new">New!</span></li>
+              <li><a href="#PartialUpdate">Making a partial update</a> <span class="exp-feat">(Experimental <img src="/images/labs-11.png" />)</span><span class="new">New!</span></li>
+              <li><a href="#batch">Performing multiple operations with a batch request</a></li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+    </div><!-- end g-section -->
+
+    <a name="Audience"></a><h1>Audience</h1>
+    <p>This document is intended for programmers who want to write client applications using the Google Data API Python client library that can interact with Google Calendar.</p>
+
+    <a name="GettingStarted"></a><h1>Getting started</h1>
+    <p>For help setting up the client library, see the <a href="/apis/gdata/articles/python_client_lib.html">Getting Started Guide</a>. The Python client library is available for <a href="http://code.google.com/p/gdata-python-client/downloads/list">download from the project page</a> or from the <a href="http://code.google.com/p/gdata-python-client/source">Subversion repository</a>.  You will also need to download and install the <a href="http://effbot.org/zone/element-index.htm">ElementTree</a> package.  Also note that to use the Python client library, you must be running Python 2.2 or newer.</p>
+    <p>A full working copy of this sample is available in the <code>CalendarExample.py</code> file, under the directory <code>gdata-python-client/samples/calendar/</code>.  You can run the sample with the following arguments:</p>
+    <pre>python calendarExample.py --user [username] --pw [password] --delete [true|false]</pre>
+    <p>The sample performs a number of operations on the provided user's calendar to demonstrate the use of the Calendar Data API.  Please see the <code>Run</code> method of the code for more details as to which operations are performed, but you'll want to be sure to use a test account so you don't modify or delete your real data.</p>
+    <p>To run the examples in this document in your own code, you'll need to use the following import statements:</p>
+<pre class="prettyprint">
+try:
+  from xml.etree import ElementTree
+except ImportError:
+  from elementtree import ElementTree
+import gdata.calendar.data
+import gdata.calendar.client
+import gdata.acl.data
+import atom.data
+import time
+</pre>
+
+    <a name="Auth"></a><h1>Authenticating to the Calendar service</h1>
+    <p>The Python client library can be used to work with either public or private feeds. However the Calendar Data API only provides access to private feeds. That means your client application must send authenticated requests to the API. This can be done via
+      <a href="#AuthClientLogin">ClientLogin</a> username/password authentication, <a href="#AuthAuthSub">AuthSub</a>, or
+      <a href="#AuthOAuth">OAuth</a>.</p>
+
+    <p>Please see the <a href="/apis/gdata/auth.html">Google Data APIs Authentication Overview</a> for more information on AuthSub, OAuth, and ClientLogin.</p>
+
+    <p class="note"><strong>Tip</strong>: The API supports SSL (HTTPS). If you're using AuthSub/OAuth, make sure to specify a scope of <code>http<strong>s</strong>://www.google.com/calendar/feeds/</code> in order to request feeds over SSL.</p>
+
+    <h2 id="AuthAuthSub">AuthSub for web applications</h2>
+    <p><a href="/apis/accounts/docs/AuthSub.html">AuthSub Authentication for Web Applications</a> should be used by client applications which need to authenticate their users to Google or Google Apps accounts. The operator does not need access to the username and password for the Google Calendar user&mdash;only an AuthSub token is required.</p>
+
+    <h3 id="AuthSubSingleUseToken">Request a single-use token</h3>
+    <p>When the user first visits your application, they need to authenticate. Typically, developers print some text and a link directing the user to the AuthSub approval page to authenticate the user and request access to their documents. The Google Data Python client library provides a function, <code>generate_auth_sub_url()</code> to generate this URL. The code below sets up a link to the <a href="/apis/accounts/docs/AuthSub.html#AuthSubRequest">AuthSubRequest</a> page.</p>
+    <pre class="prettyprint">
+import <a href="http://gdata-python-client.googlecode.com/hg/pydocs/gdata.gauth.html">gdata.gauth</a>
+
+def GetAuthSubUrl():
+  next = 'http://www.example.com/myapp.py'
+  scopes = ['https://www.google.com/calendar/feeds/']
+  secure = False  # set secure=True to request a secure AuthSub token
+  session = True
+  return gdata.gauth.<a href="http://gdata-python-client.googlecode.com/hg/pydocs/gdata.gauth.html#-generate_auth_sub_url">generate_auth_sub_url</a>(next, scopes, secure=secure, session=session)
+
+print '&lt;a href="%s"&gt;Login to your Google account&lt;/a&gt;' % GetAuthSubUrl()
+</pre>
+    <p>If you want to authenticate users on a Google Apps hosted domain, pass the domain name to <code>generate_auth_sub_url()</code>:</p>
+    <pre class="prettyprint">
+def GetAuthSubUrl():
+  domain = 'example.com'
+  next = 'http://www.example.com/myapp.py'
+  scopes = ['https://www.google.com/calendar/feeds/']
+  secure = False  # set secure=True to request a secure AuthSub token
+  session = True
+  return gdata.gauth.<a href="http://gdata-python-client.googlecode.com/hg/pydocs/gdata.gauth.html#-generate_auth_sub_url">generate_auth_sub_url</a>(next, scopes, secure=secure, session=session, domain=domain)
+</pre>
+    <p>The <code>generate_auth_sub_url()</code> method takes the following parameters that each correspond to a query parameter used by the <a href="/apis/accounts/docs/AuthSub.html#AuthSubRequest">AuthSubRequest</a> handler:
+      <ul>
+        <li>The <strong>next</strong> URL &mdash; URL that Google will redirect to after the user logs into their account and grants access; <code>http://www.example.com/myapp.py</code> in the example above.</li>
+        <li>The <strong>scope</strong> &mdash; <code>https://www.google.com/calendar/feeds/</code> in the example above. Note, both are used as a convenience to your app.  Later, if you decide to initiate API requests over SSL, your existing AuthSub tokens will be valid.</li>
+        <li>The <strong>secure</strong> flag &mdash; a boolean to indicate whether the token will be used in <a href="/apis/accounts/docs/AuthSub.html#signingrequests">secure and registered mode</a> or not; <code>False</code> in the example above.</li>
+        <li>The <strong>session</strong> flag &mdash; a second boolean to indicate whether the single-use token will later be exchanged for a session token or not; <code>True</code> in the example above.</li>
+      </ul>
+    </p>
+    <h3 id="AuthSubSessionToken">Upgrading to a session token</h3>
+    <p>See <a href="/apis/gdata/authsub.html#request-session-token">Using AuthSub with the Google Data API Client Libraries</a>.</p>
+
+    <h3 id="AuthSubTokenInfo">Retrieving information about a session token</h3>
+    <p>See <a href="/apis/gdata/authsub.html#TokenInfo">Using AuthSub with the Google Data API Client Libraries</a>.</p>
+
+    <h3 id="AuthSubRevokeToken">Revoking a session token</h3>
+    <p>See <a href="/apis/gdata/authsub.html#revoke-token">Using AuthSub with the Google Data API Client Libraries</a>.</p>
+
+    <p class="note"><strong>Tip</strong>: Once your application has successfully acquired a long lived sessions token, store that token in your database to recall for later use.  There's no need to send the user back to AuthSub on every run of your application. Use <code>client.auth_token = gdata.gauth.AuthSubToken(TOKEN_STR)</code> to set an existing token on the client.</p>
+
+    <h2 id="AuthOAuth">OAuth for web or installed/mobile applications</h2>
+
+    <p><a href="/apis/accounts/docs/OAuth.html">OAuth</a> can be used as an alternative to AuthSub, and is intended for web applications. OAuth is similar to using the <a href="/apis/accounts/docs/AuthSub.html#signingrequests">secure and registered mode</a> of AuthSub in that all data requests must be digitally signed and you must register your domain.</p>
+
+    <h3 id="OAuthRequestToken">Fetching a request token</h3>
+    <p>See <a href="/apis/gdata/oauth.html#OAuthRequestToken">Using OAuth with the Google Data API Client Libraries</a>.</p>
+
+    <h3 id="OAuthAuthorizeToken">Authorizing a request token</h3>
+    <p>See <a href="/apis/gdata/oauth.html#OAuthAuthorizeToken">Using OAuth with the Google Data API Client Libraries</a>.</p>
+
+    <h3 id="OAuthGetAccessToken">Upgrading to an access token</h3>
+    <p>See <a href="/apis/gdata/oauth.html#OAuthAuthorizeToken">Using OAuth with the Google Data API Client Libraries</a>.</p>
+
+    <p class="note"><strong>Tip</strong>: Once your application has successfully acquired an OAuth access token, store that token in your database to recall for later use.  There's no need to send the user back through OAuth on every run of your application. Use <code>client.auth_token = gdata.gauth.OAuthHmacToken(consumer_key, consumer_secret, oauth_token, oauth_secret, gdata.gauth.ACCESS_TOKEN)</code> to set an existing token on the client.</p>
+
+    <h2 id="AuthClientLogin">ClientLogin for installed/mobile applications</h2>
+
+    <p><a href="/apis/accounts/docs/AuthForInstalledApps.html">ClientLogin</a> should be used by installed or mobile applications which need to authenticate their users to Google accounts. On first run, your application prompts the user for their username/password. On subsequent requests, an authentication token is referenced.</p>
+
+    <p>To use <a href="/apis/accounts/docs/AuthForInstalledApps.html">ClientLogin</a>, invoke the <a href="http://gdata-python-client.googlecode.com/hg/pydocs/gdata.client.html#GDClient-ClientLogin"><code>ClientLogin()</code></a> method of <code>CalendarClient</code> object, which is inherited from <a href="http://gdata-python-client.googlecode.com/hg/pydocs/gdata.client.html#GDClient"><code>GDClient</code></a>. Specify the email address and password of the user on whose behalf your client is making requests. For example:</p>
+    <pre class="prettyprint">
+client = gdata.calendar.client.CalendarClient(source='yourCo-yourAppName-v1')
+client.<a href="http://gdata-python-client.googlecode.com/hg/pydocs/gdata.client.html#GDClient-ClientLogin">ClientLogin</a>('user@gmail.com', 'pa$$word', client.source)
+</pre>
+    <p class="note"><strong>Tip</strong>: Once your application has successfully authenticated the user for the first time, store the auth token in your database to recall for later use.  There's no need to prompt the user for his/her password on every run of your application. See <a href="/apis/gdata/clientlogin.html#RecallAuthToken">Recalling an auth token</a> for more information.</p>
+
+    <p>For more information on using ClientLogin in your Python applications, see the <a href="/apis/gdata/clientlogin.html">Using ClientLogin with the Google Data API Client Libraries</a>.</p>
+
+    <a name="AuthMagicCookie"></a><h2>Magic cookie authentication</h2>
+
+    <p>Magic cookie authentication can be used in cases where you want to retrieve a read-only feed containing private calendar events. A magic cookie can be specified in the URL of the feed. In the following example feed URL, 'abcdefg' is the magic cookie:</p>
+    <pre>https://www.google.com/calendar/feeds/username@gmail.com/private-abcdefg/full/</pre>
+    <p>The appropriate value for a magic cookie can be obtained through the 'Calendar details' page in the UI for each of your calendars. It is labeled as a 'Private Address'.</p>
+    <p>The following code creates a <code>CalendarEventQuery</code> object with the magic cookie information, retrieves the feed using the <code>CalendarClient</code> object, then displays the title of each event.
+    <pre class="prettyprint">
+calendar_client = gdata.calendar.client.CalendarClient()
+username = 'username@gmail.com'
+visibility = 'private-abcdefg'
+projection = 'full'
+feed_uri = calendar_client.GetCalendarEventFeedUri(calendar=username, visibility=visibility, projection=projection)
+
+feed = calendar_client.GetCalendarEventFeed(uri=feed_uri)
+for i, an_event in enumerate(feed.entry):
+  print '\t%s. %s' % (i, an_event.title.text,)</pre>
+    <p>Notice the options used to create the <code>CalendarEventQuery</code>:</p>
+    <ul>
+      <li>The <strong>username</strong> &mdash; indicating the username (in e-mail address form) of the calendar which you are accessing.</li>
+      <li>The <strong>visibility</strong> &mdash; specifying the private visibility feed along with the magic cookie value.</li>
+      <li>The <strong>projection</strong> &mdash; indicating the use of the full projection (as opposed to the basic projection, composite projection or others).</li>
+    </ul>
+    <p>Please see the <a href="reference.html#Feeds">Reference Guide</a> for more information about the Calendar feed types.</p>
+
+    <a name="RetrievingCalendars"></a><h1>Retrieving a list of calendars</h1>
+    <p>The Calendar Data API provides several ways to access the list of calendars that appear in the Google Calendar web application.  There are three types of calendars in this list: primary, secondary, and imported calendars.  A primary calendar is created for a user when they sign up for a Google Calendar account.  All other calendars created by that user are called secondary calendars.  Imported calendars are calendars that a user subscribes to that someone else has created. </p>
+
+    <a name="RetrievingAllCalendars"></a><h2>Retrieving all calendars</h2>
+
+    <p>You can get a list of a the authenticated user's calendars by sending a <code>GET</code> request to the <i>allcalendars</i> feed URL:</p>
+    <pre>https://www.google.com/calendar/feeds/default/allcalendars/full</pre>
+    <p>The <code>CalendarClient</code> object supports retrieving this list of calendars for the authenticated user.  This is the same list of calendars that is presented in the UI -- including primary, secondary, and imported calendars.  While calendars marked as 'hidden' do not appear in the UI, they are included in the feed.  You cannot retrieve a list of another user's calendars.  The following example presumes that you already have a <code>CalendarClient</code> object which has credentials specified via AuthSub or ClientLogin.</p>
+  <pre class="prettyprint">
+def PrintUserCalendars(calendar_client):
+  feed = calendar_client.GetAllCalendarsFeed()
+  print feed.title.text
+  for i, a_calendar in enumerate(feed.entry):
+    print '\t%s. %s' % (i, a_calendar.title.text,)</pre>
+    <p>Although we are only printing the title of the calendar in this case, we can also access other information, including the color of the calendar, the timezone, and more.  See <code>CalendarEntry</code> for more details on available attributes.</p>
+
+    <p class="note"><strong>Note:</strong> This feed is accessible only using an authentication token, so you cannot use a <a href="#AuthMagicCookie">magic cookie</a> URL to access the feed. For information on authentication, see the earlier <a href="#Auth">Authenticating to the Calendar service</a> section.</p>
+
+   <a name="RetrievingOwnCalendars"></a><h2>Retrieving only calendars that a user owns</h2>
+
+   <p>There is also an <i>owncalendars</i> feed that you can query to retrieve the list of calendars that the authenticated user has <code>owner</code> access to.  The <i>owncalendars</i> feed is located at:</p>
+    <pre>https://www.google.com/calendar/feeds/default/owncalendars/full</pre>
+    <p>Querying this feed will return a list of calendars that includes the user's primary and secondary calendars, as well as any imported calendars for which the user has the "Make changes AND manage sharing" permission.  The feed can be accessed by replacing the URL in the previous example:</p>
+    <pre class="prettyprint">
+def PrintOwnCalendars(calendar_client):
+  feed = calendar_client.GetOwnCalendarsFeed()
+  print feed.title.text
+  for i, a_calendar in enumerate(feed.entry):
+    print '\t%s. %s' % (i, a_calendar.title.text,)</pre>
+    <p>Although we are only printing the title of the calendar in this case, we can also access other information, including the color of the calendar, the timezone, and more.  See <code>CalendarEntry</code> for more details on available attributes.</p>
+
+    <a name="ManagingCalendars"></a><h1>Managing Calendars</h1>
+
+    <p>The <i>owncalendars</i> feed can also be used to create, update, and delete calendars.  Calendars created through the <i>owncalendars</i> feed will be secondary calendars.</p>
+
+    <a name="CreatingCalendars"></a><h2>Creating new calendars</h2>
+
+    <p>To create a new calendar, first instantiate a <code>CalendarEntry</code> object and set the appropriate values.  Then call the <code>CalendarClient.InsertCalendar</code> method, specifying the <code>CalendarEntry</code>.  The following example uses an authenticated <code>CalendarClient</code> object called <code>calendar_client</code>:</p>
+<pre class="prettyprint">
+# Create the calendar
+calendar = gdata.calendar.data.CalendarEntry()
+calendar.title = atom.data.Title(text='Little League Schedule')
+calendar.summary = atom.data.Summary(text='This calendar contains practice and game times')
+calendar.where.append(gdata.calendar.data.CalendarWhere(value='Oakland'))
+calendar.color = gdata.calendar.data.ColorProperty(value='#2952A3')
+calendar.timezone = gdata.calendar.data.TimeZoneProperty(value='America/Los_Angeles')
+calendar.hidden = gdata.calendar.data.HiddenProperty(value='false')
+
+new_calendar = calendar_client.InsertCalendar(new_calendar=calendar)
+</pre>
+    <p class="note"><strong>Note:</strong> The &lt;atom:id&gt; field of the calendar entry should be <code>null</code> because the Google Calendar server will create an id for the entry when it process the request.</p>
+
+    <a name="UpdatingCalendars"></a><h2>Updating existing calendars</h2>
+
+    <p>You can update most information about the authenticated user's calendars via the <i>owncalendars</i> feed.  The following example updates the title and color of a <code>CalendarEntry</code>.</p>
+<pre class="prettyprint">
+# calendar represents a previously retrieved CalendarEntry
+calendar.title = atom.data.Title(text='New Title')
+calendar.color = gdata.calendar.data.ColorProperty(value='#A32929')
+updated_calendar = calendar_client.Update(calendar)
+</pre>
+    <a name="DeletingCalendars"></a><h2>Deleting calendars</h2>
+    <p>To delete a calendar, call the <code>Delete</code> method on the <code>CalendarClient</code> object, passing the appropriate edit link.  The following example attempts to delete all the calendars that are returned in the feed:</p>
+    <pre class="prettyprint">
+feed = calendar_client.GetOwnCalendarsFeed()
+for entry in feed.entry:
+  print 'Deleting calendar: %s' % entry.title.text
+  calendar_client.Delete(entry.GetEditLink().href)
+</pre>
+    <p class="note"><strong>Note:</strong> You can't delete a user's primary calendar, i.e. the calendar with the user's email address in the ID.  If you try to delete a primary calendar, a <code>gdata.Service.RequestError</code> will be thrown.</p>
+
+    <a name="ManagingSubscriptions"></a><h1>Managing subscriptions to calendars</h1>
+
+    <p>The <i>allcalendars</i> feed can be used to modify the list of imported calendars that a user has subscribed to.  Calendars inserted via the <i>allcalendars</i> feed will be added as imported calendars.</p>
+
+    <a name="AddingSubscriptions"></a><h2>Adding new subscriptions</h2>
+
+    <p>To subscribe to an existing calendar, you first need to find the calendar's ID.  The calendar ID is available on the calendar settings page, next to the Calendar Address buttons.  If you're subscribing to a user's primary calendar, the id will just be the user's email address.</p>
+    <p>Once you have the calendar's ID, you can instantiate a <code>CalendarEntry</code> object and set the <code>id</code> property to specify the calendar to subscribe to.  Then call the <code>CalendarClient.InsertCalendarSubscription</code> method, specifying the <i>allcalendars</i> feed.  The following example uses an authenticated <code>CalendarClient</code> object called <code>calendar_client</code> to subscribe to the Google Doodles calendar:</p>
+<pre class="prettyprint">
+calendar = gdata.calendar.data.CalendarEntry()
+calendar.id = atom.data.Id(text='c4o4i7m2lbamc4k26sc2vokh5g%40group.calendar.google.com')
+returned_calendar = calendar_client.InsertCalendarSubscription(calendar)
+</pre>
+    <p>This invocation of <code>InsertCalendarSubscription</code> will have different results based on the current state of the calendar.  If the subscription doesn't exist, then the calendar is added to the user's list of imported calendars.  If the user has already subscribed to the calendar, then the server will return a <code>409 Conflict</code>.  If the calendar inserted is currently hidden, it will become visible.</p>
+
+    <a name="UpdatingSubscriptions"></a><h2>Updating calendar subscriptions</h2>
+
+    <p>You can update the following personalization settings of a calendar using the <i>allcalendars</i> feed:</p>
+    <ul>
+      <li><strong>color</strong> &mdash; the color of the calendar in the UI.</li>
+      <li><strong>hidden</strong> &mdash; whether or not the calendar is shown in the UI.</li>
+      <li><strong>selected</strong> &mdash; whether or not the calendar is selected in the UI.</li>
+    </ul>
+    <p>The personalization settings can be modified with the <i>allcalendars</i> feed even if the user doesn't own the calendar.  However, the title and summary of the calendar can only be updated by an owner of the calendar using the <i>owncalendars</i> feed.  The following example makes all the calendars in the feed visible but not selected and turns them green:</p>
+<pre class="prettyprint">
+feed = calendar_client.GetAllCalendarsFeed()
+for i, a_calendar in enumerate(feed.entry):
+  a_calendar.color = gdata.calendar.data.ColorProperty(value='#0D7813')
+  a_calendar.hidden = gdata.calendar.data.HiddenProperty(value='false')
+  a_calendar.selected = gdata.calendar.data.SelectedProperty(value='false')
+  updated_calendar = calendar_client.Update(a_calendar)
+</pre>
+
+    <a name="DeletingSubscriptions"></a><h2>Deleting subscriptions</h2>
+
+    <p>To remove an imported calendar, retrieve the calendar from the <i>allcalendars</i> feed and call the <code>CalendarClient.Delete</code> method, passing the edit URL.  The following example removes the subscription to the Google Doodles calendar that was added in a previous example:</p>
+    <pre class="prettyprint">
+calendar_url = 'https://www.google.com/calendar/feeds/default/allcalendars/full/c4o4i7m2lbamc4k26sc2vokh5g%40group.calendar.google.com'
+calendar_entry = calendar_client.GetCalendarEntry(calendar_url)
+calendar_client.Delete(calendar_entry.GetEditLink().href)</pre>
+
+    <a name="RetrievingEvents"></a><h1>Retrieving events</h1>
+    <a name="RetrievingWithoutQuery"></a><h2>Retrieving events without query parameters</h2>
+    <p>Like the list of calendars, events are also retrieved using the <code>CalendarClient</code> class. This example specifies the use of the private visibility feed which requires that the <code>CalendarClient</code> object was already <a href="#Auth">authenticated</a> using AuthSub or ClientLogin.</p>
+    <pre class="prettyprint">
+def PrintAllEventsOnDefaultCalendar(calendar_client):
+  feed = calendar_client.GetCalendarEventFeed()
+  print 'Events on Primary Calendar: %s' % (feed.title.text,)
+  for i, an_event in enumerate(feed.entry):
+    print '\t%s. %s' % (i, an_event.title.text,)
+    for p, a_participant in enumerate(an_event.who):
+      print '\t\t%s. %s' % (p, a_participant.email,)
+      print '\t\t\t%s' % (a_participant.attendee_status.value,)</pre>
+    <p>When invoked with no parameters, the <code>GetCalendarEventFeed</code> method returns the user's primary calendar.  By default, the server limits the result set initially returned, but you can use the <code>max_results</code> query parameter to ask the server to send additional results back.  Additionally, you can page through the results returned by using the <code>feed.GetNextLink().href</code> value to get the location of the next set of results.  We'll show you how to create detailed queries like this as we progress through this guide.</p>
+
+    <a name="RetrievingDateRange"></a><h2>Retrieving events for a specified date range</h2>
+    <p>To print out all events between January 1 2007 and July 1 2007, you can create a query and use it to retrieve information from the <code>CalendarClient</code>. Note that while the <code>start_min</code> is inclusive, the <code>start_max</code> is exclusive, so specifying a start_max of '2007-07-01' will include those events up until 2007-06-30 11:59:59PM.  Again, the following example presumes that you already have a <code>CalendarClient</code> object which has credentials specified via AuthSub or ClientLogin.</p>
+    <pre class="prettyprint">
+def DateRangeQuery(calendar_client, start_date='2007-01-01', end_date='2007-07-01'):
+  print 'Date range query for events on Primary Calendar: %s to %s' % (start_date, end_date,)
+  query = gdata.calendar.client.CalendarEventQuery()
+  query.start_min = start_date
+  query.start_max = end_date
+  feed = calendar_client.GetCalendarEventFeed(q=query)
+  for i, an_event in enumerate(feed.entry):
+    print '\t%s. %s' % (i, an_event.title.text,)
+    for a_when in an_event.when:
+      print '\t\tStart time: %s' % (a_when.start,)
+      print '\t\tEnd time:   %s' % (a_when.end,)</pre>
+
+    <a name="RetrievingWithQuery"></a><h2>Retrieving events matching a full text query</h2>
+    <p>The <code>CalendarClient</code> class also supports full-text queries.  The full-text query searches the title and content of an event, but it does not search the value of extended properties at the time of this writing.  It uses the default (primary) calendar of the authenticated user and uses the private visibility/full projection feed.  Please see the <a href="/apis/calendar/reference.html#Feeds">Calendar feed types</a> section of the reference guide for more information on the feed types.  Again, the following example presumes that you already have a <code>CalendarClient</code> object which has credentials specified via AuthSub or ClientLogin.</p>
+    <pre class="prettyprint">
+def FullTextQuery(calendar_client, text_query='Tennis'):
+  print 'Full text query for events on Primary Calendar: \'%s\'' % ( text_query,)
+  query = gdata.calendar.client.CalendarEventQuery(text_query=text_query)
+  feed = calendar_client.GetCalendarEventFeed(q=query)
+  for i, an_event in enumerate(feed.entry):
+    print '\t%s. %s' % (i, an_event.title.text,)
+    print '\t\t%s. %s' % (i, an_event.content.text,)
+    for a_when in an_event.when:
+      print '\t\tStart time: %s' % (a_when.start,)
+      print '\t\tEnd time:   %s' % (a_when.end,)</pre>
+
+    <a name="CreatingEvents"></a><h1>Creating events</h1>
+    <p>The Calendar Data API allows you to create two types of events: single-occurrence events and recurring events, which are set up to repeat on a predetermined schedule.</p>
+
+    <a name="CreatingSingle"></a><h2>Creating single-occurrence events</h2>
+
+    <p>To insert a single-occurrence event into a Calendar feed, we first create the <code>CalendarEventEntry</code> and then add it to the calendar using the <code>InsertEvent</code> method.  The <code>InsertEvent</code> method returns a tuple that contains a boolean indicating success or failure.  Upon success, the tuple will contain the calendar entry that was added.  On failure, the tuple will contain the HTTP status code, reason for failure, and message body returned from the server.</p>
+
+    <pre class="prettyprint">
+def InsertSingleEvent(calendar_client, title='One-time Tennis with Beth',
+                      content='Meet for a quick lesson', where='On the courts',
+                      start_time=None, end_time=None):
+    event = gdata.calendar.data.CalendarEventEntry()
+    event.title = atom.data.Title(text=title)
+    event.content = atom.data.Content(text=content)
+    event.where.append(gdata.calendar.data.CalendarWhere(value=where))
+
+    if start_time is None:
+      # Use current time for the start_time and have the event last 1 hour
+      start_time = time.strftime('%Y-%m-%dT%H:%M:%S.000Z', time.gmtime())
+      end_time = time.strftime('%Y-%m-%dT%H:%M:%S.000Z', time.gmtime(time.time() + 3600))
+    event.when.append(gdata.calendar.data.When(start=start_time, end=end_time))
+
+    new_event = calendar_client.InsertEvent(event)
+
+    print 'New single event inserted: %s' % (new_event.id.text,)
+    print '\tEvent edit URL: %s' % (new_event.GetEditLink().href,)
+    print '\tEvent HTML URL: %s' % (new_event.GetHtmlLink().href,)
+
+    return new_event</pre>
+<p>Note that some members of the <code>CalendarEventEntry</code> class are stored as arrays and others are not.  This is based on the Google Data API event "kind" specification.  Members which are allowed to occur more than once, such as <code>where</code> and <code>who</code>, are stored as arrays.  Even for these elements, Google Calendar may limit the length of the array to one element, such as in the case of the <code<where</code> member.  The general motto to use when working with the Calendar Data API is that functionality not available through the GUI will not be available through the API.  Please see the <a href="/apis/gdata/elements.html#gdEventKind">Event kind section</a> of the Data API common elements documentation for more information.</p>
+
+    <a name="CreatingQuickAdd"></a><h2>Creating quick add events</h2>
+
+    <p>To create an event using Google Calendar's <a href="http://www.google.com/support/calendar/bin/answer.py?answer=36604">quick add</a> feature, set the entry's content to the quick add string you'd like to use.  Then set the <code>quick_add</code> property on the  new entry, as follows:</p>
+    <pre class="prettyprint">event = gdata.calendar.data.CalendarEventEntry()
+event.content = atom.data.Content(text='Tennis with John July 30 3pm-3:30pm')
+event.quick_add = gdata.calendar.data.QuickAddProperty(value='true')
+
+# Send the request and receive the response:
+new_event = calendar_client.InsertEvent(event)</pre>
+    <p>Notice that it's not necessary to set the <code>title</code> property when creating an event with quick add; the title is parsed automatically (in this case, "Tennis with John").</p>
+
+
+    <a name="CreatingGadgets"></a><h2>Creating Calendar Event Gadgets</h2>
+
+    <p>You can also insert Calendar Event Gadgets events using the Python Client Library. Calendar Event Gadgets, formerly called web content, can contain images, HTML pages, or gadgets.</p>
+    <p>To create a simple Calendar Event Gadget that displays an image, first instantiate new <code>gdata.calendar.WebContent</code> and <code>gdata.calendar.WebContentLink</code> objects and set their properties, as follows:</p>
+    <pre class="prettyprint">
+# Create a WebContent object
+url = 'http://www.google.com/logos/worldcup06.gif'
+web_content = gdata.calendar.data.WebContent(url=url, width='276', height='120')
+
+# Create a WebContentLink object that contains the WebContent object
+title = 'World Cup'
+href = 'http://www.google.com/calendar/images/google-holiday.gif'
+type = 'image/gif'
+web_content_link = gdata.calendar.data.WebContentLink(title=title, href=href,
+    link_type=type, web_content=web_content)</pre>
+    <p>This code sets up <code>WebContent</code> and <code>WebContentLink</code> objects to display the <a href="http://www.google.com/logos/worldcup06.gif">World Cup doodle</a> (dimensions 276x120, and located at <code>http://www.google.com/logos/worldcup06.gif</code>). The icon at <code>http://www.google.com/calendar/images/google-holiday.gif</code> will be used to display the Calendar Event Gadget in the Calendar user interface before it is clicked.</p>
+    <p>The process is very similar to create a Calendar Event Gadget that displays a gadget, but this time the type should be <code>application/x-google-gadgets+xml</code>.  You'll also need to get the gadget's URL from the <a href="http://www.google.com/ig/directory">iGoogle Directory</a>. This example configures a Calendar Event Gadget to display the DateTime gadget and specifies the appropriate user preferences.</p>
+    <pre class="prettyprint">
+# Create a WebContent object
+url = 'http://google.com/ig/modules/datetime.xml'
+web_content = gdata.calendar.data.WebContent(url=url, width='300', height='136')
+web_content.web_content_gadget_pref.append(
+    gdata.calendar.data.WebContentGadgetPref(name='color', value='green'))
+
+# Create a WebContentLink object that contains the WebContent object
+title = 'Date and Time Gadget'
+href = 'http://www.google.com/calendar/images/google-holiday.gif'
+type = 'application/x-google-gadgets+xml'
+web_content_link = gdata.calendar.data.WebContentLink(title=title, href=href,
+    link_type=type, web_content=web_content)</pre> </pre>
+    <p>Once you've created the <code>WebContentLink</code> object, append this object to the collection of links in the <code>CalendarEventEntry</code> object and insert the event:</p>
+    <pre class="prettyprint"># Create an event that contains this web content
+event = gdata.calendar.data.CalendarEventEntry()
+event.link.append(web_content_link)
+
+new_event = calendar_client.InsertEvent(event)</pre>
+    <p>This inserts the Calendar Event Gadget on the current date.  Please see the section on <a href="#CreatingSingle">Creating single-occurrence events</a> for information on how to set the <code>start_time</code> property to choose the date when the Calendar Event Gadget should appear on the calendar.</p>
+    <p class="note"><strong>Note:</strong> For more information on Calendar Event Gadgets, check out the documentation <a href="/apis/calendar/calendar_gadgets.html">here</a>.</p>
+
+    <a name="CreatingRecurring"></a><h2>Creating recurring events</h2>
+
+    <p>Creating a recurring event is just like creating a single-occurrence event except that we have to specify the recurrence information in the <code>CalendarEventEntry</code> object that we're adding.  Here's an example showing how to add a recurring event:</p>
+
+    <pre class="prettyprint">
+def InsertRecurringEvent(calendar_client, title='Weekly Tennis with Beth',
+                         content='Meet for a quick lesson', where='On the courts',
+                         recurrence_data=None):
+    if recurrence_data is None:
+      recurrence_data = ('DTSTART;VALUE=DATE:20070501\r\n'
+        + 'DTEND;VALUE=DATE:20070502\r\n'
+        + 'RRULE:FREQ=WEEKLY;BYDAY=Tu;UNTIL=20070904\r\n')
+
+    event = gdata.calendar.data.CalendarEventEntry()
+    event.title = atom.data.Title(text=title)
+    event.content = atom.data.Content(text=content)
+    event.where.append(gdata.calendar.data.CalendarWhere(value=where))
+
+    # Set a recurring event
+    event.recurrence = gdata.data.Recurrence(text=recurrence_data)
+    new_event = calendar_client.InsertEvent(event)
+
+    print 'New recurring event inserted: %s' % (new_event.id.text,)
+    print '\tEvent edit URL: %s' % (new_event.GetEditLink().href,)
+    print '\tEvent HTML URL: %s' % (new_event.GetHtmlLink().href,)
+
+    return new_event</pre>
+    <p>The recurrence string follows the iCalendar standard (<a href="http://www.ietf.org/rfc/rfc2445.txt">RFC 2445</a>).  Please see the <a href="/apis/gdata/elements.html#gdRecurrence">gd:recurrence section</a> of the Data API common elements documentation for more information on gd:recurrence syntax.</p>
+
+    <a name="UpdatingEvents"></a><h1>Updating events</h1>
+    <p>The general methodology for updating an event is to retrieve the existing event from the server, update the properties you wish to change and save the changes. Here's some sample code to update the title of an event that we've already retrieved from the service.</p>
+    <pre class="prettyprint">
+def UpdateTitle(calendar_client, event, new_title='Updated event title'):
+  previous_title = event.title.text
+  event.title.text = new_title
+  print 'Updating title of event from:\'%s\' to:\'%s\'' % (previous_title, event.title.text,)
+  return calendar_client.Update(event)</pre>
+    <p>Note that the <code>Update</code> method (like <code>InsertEvent</code>) returns a
+    <code>CalendarEventEntry</code> object created from the data returned by the server
+    after the event is inserted.  This represents the 'official' state of
+    the event on the server.</p>
+
+    <a name="DeletingEvents"></a><h1>Deleting events</h1>
+
+    <p>To delete an existing event, just call the <code>Delete</code> method and pass in the edit link from the <code>CalendarEventEntry</code>, like this:</p>
+    <pre class="prettyprint">def DeleteEvent(calendar_client, event):
+  calendar_client.Delete(event)</pre>
+
+    <a name="batch"></a><h1>Performing multiple operations with a batch request</h1>
+    <p>If you're performing a lot of operations, the time it takes to send and and receive all those HTTP messages can really add up, making your app slow and unresponsive.  With batch requests you can have the server perform multiple operations with a single HTTP request.  The basic idea is that you create a <code>CalendarEventFeed</code> object and add an entry for each operation you want to perform.  The following code snippet builds and submits a batch request that contains four operations, one each for creating, querying, updating, and deleting an event, but you can use any combination of operations that you want.  The snippet also shows how to check the batch response to make sure the operations were successful.  Note that the <code>calendar_client</code> object is an authenticated instance of the <code>CalendarClient</code> class.</p>
+<pre class="prettyprint">
+def batchRequest():
+  # feed that holds all the batch rquest entries
+  request_feed = gdata.calendar.data.CalendarEventFeed()
+
+  # creating an event entry to insert
+  insertEntry = gdata.calendar.data.CalendarEventEntry()
+  insertEntry.title = atom.data.Title(text='Python: batch insert')
+  insertEntry.content = atom.data.Content(text='my content')
+  start_time = '2008-06-01T09:00:00.000-07:00'
+  end_time = '2008-06-01T10:00:00.000-07:00'
+  insertEntry.when.append(gdata.calendar.data.When(start=start_time,
+    end=end_time))
+  insertEntry.batch_id = gdata.data.BatchId(text='insert-request')
+
+  # add the insert entry to the batch feed
+  request_feed.AddInsert(entry=insertEntry)
+
+  updateEntry = getOneEvent('Python')
+  if updateEntry:
+    updateEntry.batch_id = gdata.data.BatchId(text='update-request')
+    updateEntry.title = atom.data.Title(text='Python: batch update')
+    # add the update entry to the batch feed
+    request_feed.AddUpdate(entry=updateEntry)
+
+  queryEntry = getOneEvent('Python')
+  if queryEntry:
+    queryEntry.batch_id = gdata.data.BatchId(text='query-request')
+    # add the query entry to the batch feed
+    request_feed.AddQuery(entry=queryEntry)
+
+  deleteEntry = getOneEvent('Python')
+  if deleteEntry:
+    deleteEntry.batch_id = gdata.data.BatchId(text='delete-request')
+    # add the delete entry to the batch feed
+    request_feed.AddDelete(entry=deleteEntry)
+
+  # submit the batch request to the server
+  response_feed = calendar_client.ExecuteBatch(request_feed,
+    gdata.calendar.client.DEFAULT_BATCH_URL)
+
+  # iterate the response feed to get the operation status
+  for entry in response_feed.entry:
+    print 'batch id: %s' % (entry.batch_id.text,)
+    print 'status: %s' % (entry.batch_status.code,)
+    print 'reason: %s' % (entry.batch_status.reason,)
+
+def getOneEvent(text):
+  query = gdata.calendar.client.CalendarEventQuery(text_query=text, max_results=1)
+
+  feed = calendar_client.GetCalendarEventFeed(q=query)
+
+  if len(feed.entry) > 0:
+    return feed.entry[0]
+  else:
+    return None
+</pre>
+<p>When working with batch requests, the size of the request must be under a megabyte and it's best to limit batches to 50-100 operations at a time.  You can find more information about batch operations in the <a href="/apis/gdata/batch.html">Google Data API Batch Processing</a> documentation.</p>
+
+    <a name="SharingACalendar"></a><h1>Sharing calendars</h1>
+    <p>This section describes how to retrieve and modify Calendar access control lists (ACLs) with the Python client library for Google Data APIs. An access control list identifies the set of users with whom a calendar is shared, and the access permissions of each user (read-only access, full access, etc.) For more information, see <a href="developers_guide_protocol.html#SharingACalendar">the ACL topic</a> of the Protocol section.</p>
+
+    <a name="RetrieveAcl"></a><h2>Retrieving access control lists</h2>
+    <p>To retrieve and print an access control lists of your default calendar, use the following code. Here <code>calendar_client</code> is an authenticated <code>CalendarClient</code> object.</p>
+
+<pre class="prettyprint">
+feed = calendar_client.GetCalendarAclFeed()
+print feed.title.text
+for i, a_rule in enumerate(feed.entry):
+  print '\t%s. %s' % (i, a_rule.title.text,)
+  print '\t\t Role: %s' % (a_rule.role.value,)
+  print '\t\t Scope %s - %s' % (a_rule.scope.type, a_rule.scope.value)
+</pre>
+    <p>To access an ACL feed for a secondary calendar, you need to get the ACL feed URI from the calendar metafeed (see <a href="#RetrievingCalendars">Retrieving a list of calendars</a>).  For each calendar in the metafeed, the ACL feed URI is contained in a link element where <code>rel="http://schemas.google.com/acl/2007#accessControlList"</code>. These links have the form <code>https://www.google.com/calendar/feeds/&lt;calendarId&gt;/acl/full</code>.</p>
+    <p>An <code>CalendarAclEntry</code> consists of a <i>scope</i>, which defines a user with access to this calendar, and a <i>role</i>, which defines how much access he or she has. Valid roles are:</p>
+    <ul>
+      <li><code>"freebusy"</code> - this user can only see free/busy information.</li>
+      <li><code>"read"</code> - this user can see all event details.</li>
+      <li><code>"editor"</code> - this user can make changes to events.</li>
+      <li><code>"owner"</code> - this user can make changes <i>and</i> manage sharing.</li>
+    </ul>
+    <p class="note"><strong>Note</strong>: Google Data ACLs define scopes that encompass more than one user, though the examples here only use the scope of type "user" for simplicity.  Specifically, "domain" (available only in Google Apps) indicates that an access rule applies to all users with email addresses in the domain, while "default" specifies an access rule that applies to all users. For more information, see the <a href="reference.html#gacl_reference">GAcl namespace element reference</a>.</p>
+
+    <a name="AddAcl"></a><h2>Adding a user to an access control list</h2>
+
+    <p>To add a user to a calendar's access control list you might do the following:</p>
+<pre class="prettyprint">
+rule = gdata.calendar.data.CalendarAclEntry()
+rule.scope = gdata.acl.data.AclScope(value='viewer@gmail.com', type='user')
+roleValue = 'http://schemas.google.com/gCal/2005#%s' % ('freebusy')
+rule.role = gdata.acl.data.AclRole(value=roleValue)
+aclUrl = 'https://www.google.com/calendar/feeds/creator@gmail.com/acl/full'
+returned_rule = calendar_client.InsertAclEntry(rule, aclUrl)
+</pre>
+    <p>This code allows <code>viewer@gmail.com</code> to have "freebusy" access to <code>creator@gmail.com</code>'s calendar. Note that if an attempt is made to add an entry with a scope whose type and value match another entry already in the access control list, the operation will fail with error code 409 (Conflict).</p>
+
+    <a name="UpdateAcl"></a><h2>Updating a user's role in an ACL</h2>
+
+    <p>In order to change a user's access level to a calendar, update the <code>CalendarAclEntry</code> with the following code.  Here <code>returned_rule</code> is the ACL entry returned from the call to the <code>Insert</code> method in the previous example:</p>
+<pre class="prettyprint">
+roleValue = 'http://schemas.google.com/gCal/2005#%s' % ('read')
+returned_rule.role = gdata.acl.data.AclRole(value=roleValue)
+updated_rule = calendar_client.Update(returned_rule)
+</pre>
+    <p>This code changes the role of the existing ACL entry from "freebusy" to "read" access privileges for the user <code>jdoe@gmail.com</code>.</p>
+
+    <p class="note"><strong>Note</strong>: It is not possible to modify the scope of an <code>CalendarAclEntry</code> when updating it; only the role can be modified. An attempt to update the scope will result in a 403 (Forbidden) error.</p>
+
+    <a name="DeleteAcl"></a><h2>Removing a user from an access control list</h2>
+
+    <p>To remove a user from a calendar's access control list, do the following:</p>
+<pre class="prettyprint">
+calendar_client.Delete(entry.GetEditLink().href)
+</pre>
+    <p>Here <code>entry</code> is a <code>CalendarAclEntry</code> that was already defined as a variable or retrieved from a <code>CalendarAclFeed</code>. Executing this code will cause the user defined in <code>entry</code>'s scope to lose access to this calendar.</p>
+
+    <a name="AdditionalOps"></a><h1>Additional operations</h1>
+
+    <p>This section describes other Calendar operations you can perform with the Google Data API Python client library.</p>
+
+    <a name="ExtendedProps"></a><h2>Extended properties</h2>
+
+    <p>You can add extended properties (arbitrary name-value pairs) to Calendar events.  These can be used to store application-specific IDs or other small amounts of information your application needs when interacting with a Google Calendar.  Extended properties are only accessible through the API &ndash; they do not appear in the Calendar user interface.</p>
+    <p>In this example, we are adding an extended property <code>id</code> with value <code>1234</code> to the Calendar entry <code>myEntry</code>. It is recommended that you specify the complete schema URL to avoid namespace collisions with other applications that use the same property name.</p>
+    <pre class="prettyprint">def AddExtendedProperty(calendar_client, event,
+                        name='http://www.example.com/schemas/2005#mycal.id',
+                        value='1234'):
+  event.extended_property.append(gdata.calendar.data.CalendarExtendedProperty(name=name, value=value))
+  print 'Adding extended property to event: \'%s\'=\'%s\'' % (name, value,)
+  return calendar_client.Update(event)</pre>
+
+    <a name="Reminders"></a><h2>Reminders and Notifications</h2>
+
+    <p>The following example shows how to add a reminder to an event.  The example uses the default reminder settings for the user to determine what type of notifications are sent (email, sms, popup, etc.) and sets the reminder for 'minutes' number of minutes before the event.  Currently you can only use values for minutes as specified in the Calendar GUI.  Also, reminders are only available on a user's primary calendar.</p>
+    <pre class="prettyprint">def AddReminder(calendar_client, event, minutes=10):
+  for a_when in event.when:
+    if len(a_when.reminder) > 0:
+      a_when.reminder[0].minutes = minutes
+    else:
+      a_when.reminder.append(gdata.data.Reminder(minutes=minutes))
+
+  print 'Adding %d minute reminder to event' % (minutes,)
+  return calendar_client.Update(event)</pre>
+
+  
+        </div><!-- end gc-pagecontent -->
+     </div><!-- end gooey wrapper -->
+  
+      </div> <!-- end codesite content -->
+
+
+<div id="gc-footer" dir="ltr">
+  <div class="text">
+    
+    ©2011 Google -
+    <a href="/">Code Home</a> -
+    <a href="/terms.html">Site Terms of Service</a> -
+    <a href="/privacy.html">Privacy Policy</a> -
+    <a href="/more/">Site Directory</a>
+    <br> <br>
+    Google Code offered in:
+    <a href="/intl/en/">English</a> -
+    <a href="/intl/es/">Español</a> -
+    <a href="/intl/ja/">日本語</a> -
+    <a href="/intl/ko/">한국어</a> -
+    <a href="/intl/pt-BR/">Português</a> -
+    <a href="/intl/ru/">Pусский</a> -
+    <a href="/intl/zh-CN/">中文(简体)</a> -
+    <a href="/intl/zh-TW/">中文(繁體)</a>
+  </div>
+</div><!-- end gc-footer -->
+
+</div><!-- end gc-container -->
+
+<script type="text/javascript">CODESITE_CSITimer['load'].tick('ats');</script>
+<script src="/js/codesite_tail.pack.04102009.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+
+
+
+  
+    </body>
+  </html>
+  

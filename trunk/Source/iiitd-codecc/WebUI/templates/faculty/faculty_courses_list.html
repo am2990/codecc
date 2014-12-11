@@ -1,0 +1,106 @@
+{% extends "../base.html" %}
+
+{% block title %}IIITD-CODECC - {{firstname}} {{lastname}}'s courses{% endblock %}
+
+{% block menu %}
+
+<div id="header">
+		<div id="menu">
+			<ul>
+				{% for men in menu %}
+					{% ifequal men menu.0 %}
+    					<li><a href="{{men.1}}" class="first">{{men.0}}</a></li>
+					{% else %}
+    					<li><a href="{{men.1}}" >{{men.0}}</a></li>
+					{% endifequal %}
+				{% endfor %}
+			</ul>
+</div>
+{% endblock %}
+{% block content %}
+<br>
+
+<table class="invi">
+	<tr>
+		<th width="500" >
+			<table class="normal" width="80%" >
+				<thead >
+					<tr>
+						<th style="width:auto">
+							S.No.
+						</th>
+						<th style="width:auto">
+							CourseNo.
+						</th >
+						<th style="width:auto">
+							CourseName
+						</th>
+						<th style="width:auto">
+							TA
+						</th>
+						<th style="width:auto">
+							Edit This Course
+						</th>
+					</tr>
+				</thead>
+				{% for course in courses %}
+					<tr>
+						<td style="width:auto">
+							{{course.0}}
+						</td>
+						<th style="width:auto">
+							{{course.1}}
+						</th>
+						<td style="width:auto">
+							{{course.2}}
+						</td>
+						<th style="width:auto">
+							{{course.3}}
+						</th>
+						<td style="width:auto">
+							<form action="/AddNewCourse">
+							<input type="hidden" name="CourseNum" value="{{course.1}}"/><input type="submit" value="Edit Course"/>
+							</form>
+						</td>
+					</tr>
+				{% endfor %}
+		</table>	
+			<br>	
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+			<a href="/AddNewCourse"><button value="Add New Course" type="button">Add New Course</button></a>
+		</th>
+		<td >
+		<table class="invi">
+			<tr>
+				<td height="50" style="border:medium #8A8A8A solid">
+					<table class="invi">
+						<tr>
+							<td style="width: 127px; height: 126px">
+
+								&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;
+
+								<img src="{{image}}" width="100" style="text-align:center"><br>&nbsp;</td>
+							<td style="width: 323px; height: 126px;">
+							{{info}}
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<td>
+			
+			</td>
+			<tr>
+				<th >
+						<iframe src="https://www.google.com/calendar/b/0/embed?title=Your%20Calendar&amp;showPrint=0&amp;height=275&amp;wkst=1&amp;bgcolor=%23ccccff&amp;src=codecc.iiitd%40gmail.com&amp;color=%23182C57&amp;ctz=Asia%2FCalcutta"
+					 style=" border-width:0 " width="450" height="225" frameborder="0" scrolling="no"></iframe>
+				</th>
+			</tr>
+		</table>				 
+		</td>
+	</tr>
+
+</table>
+
+{% endblock %}
+

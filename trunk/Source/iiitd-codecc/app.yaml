@@ -1,0 +1,46 @@
+application: iiitd-codecc
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /
+  script: main.py
+  login: required
+
+- url: /AddNewCourse
+  script: main.py
+  login: required
+
+- url: /AddNewCourseFrame
+  script: main.py
+  login: required
+
+- url: /EditProfile
+  script: main.py
+  login: required
+
+- url: /img
+  script: main.py
+  login: required
+
+- url: /NewUser
+  script: main.py
+  login: required
+
+- url: /AddNewUser
+  script: main.py
+  login: required
+  
+- url: /images
+  static_dir: WebUI/Images
+
+- url: /css
+  static_dir: WebUI/CSS
+
+- url: /js
+  static_dir: WebUI/JS
+  
+- url: /favicon.ico
+  static_files: Images/favicon.ico
+  upload: Images/favicon.ico

@@ -1,0 +1,126 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<meta name="HandheldFriendly" content="true" />
+<title>Form</title>
+<link type="text/css" rel="stylesheet" href="../css/styles/form.css?v3.0.1463"/>
+<link href="../css/calendarview.css?v3.0.1463" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="../css/styles/pastel.css" />
+<style type="text/css">
+    .form-label{
+        width:131px !important;
+    }
+    .form-label-left{
+        width:131px !important;
+    }
+    .form-line{
+        padding:10px;
+    }
+    .form-label-right{
+        width:131px !important;
+    }
+    .form-all{
+        width:50%;
+        background:#D4CFCF;
+        color:#524B3A !important;
+        font-family:Verdana;
+        font-size:15px;
+    }
+</style>
+
+<script src="../js/prototype.js?v=3.0.1463" type="text/javascript"></script>
+<script src="../js/protoplus.js?v=3.0.1463" type="text/javascript"></script>
+<script src="../js/protoplus-ui.js?v=3.0.1463" type="text/javascript"></script>
+<script src="../js/jotform.js?v=3.0.1463" type="text/javascript"></script>
+<script src="../js/calendarview.js?v=3.0.1463" type="text/javascript"></script>
+<script type="text/javascript">
+   JotForm.init(function(){
+      $('input_3').hint('ex: myname@example.com');
+   });
+</script>
+</head>
+<form class="jotform-form" action="/AddNewUser" method="post" enctype="multipart/form-data" accept-charset="utf-8" name="form_12840926498" id="12840926498" target="_top">
+  <div class="form-all">
+    <ul class="form-section">
+      <li id="cid_7" class="form-input-wide">
+        <div class="form-header-group">
+          <h3 id="header_7" class="form-header">
+            Enter Profile Details           </h3>
+        </div>
+      </li>
+      <li class="form-line" id="id_9">
+        <label class="form-label-left" id="label_9" for="input_9"> Prefix </label>
+        <div id="cid_9" class="form-input">
+          <select class="form-dropdown" style="width:75px" id="input_9" name="Prefix">
+            <option>  </option>
+            <option selected="selected" value="Mr."> Mr. </option>
+            <option value="Ms."> Ms. </option>
+            <option value="Mrs."> Mrs. </option>
+            <option value="Dr."> Dr. </option>
+          </select>
+        </div>
+      </li>
+      <li class="form-line" id="id_10">
+        <label class="form-label-left" id="label_10" for="input_10">
+          First Name<span class="form-required">*</span>
+        </label>
+        <div id="cid_10" class="form-input">
+          <input type="text" class="form-textbox validate[required, Alphabetic]" id="input_10" name="FirstName" size="20" value="{{FirstName}}"/>
+        </div>
+      </li>
+      <li class="form-line" id="id_11">
+        <label class="form-label-left" id="label_11" for="input_11"> Last Name </label>
+        <div id="cid_11" class="form-input">
+          <input type="text" class="form-textbox validate[Alphabetic]" id="input_11" name="LastName" size="20" value="{{LastName}}"/>
+        </div>
+      </li>
+      <li class="form-line" id="id_3">
+        <label class="form-label-left" id="label_3" for="input_3">
+          E-mail<span class="form-required">*</span>
+        </label>
+        <div id="cid_3" class="form-input">
+          <input type="email" class="form-textbox validate[required, Email]" id="input_3" name="Email" size="30" value="{{Email}}"/>
+        </div>
+      </li>
+      <li class="form-line" id="id_4">
+        <label class="form-label-left" id="label_4" for="input_4">
+          Contact<span class="form-required">*</span>
+        </label>
+        <div id="cid_4" class="form-input"><span class="form-sub-label-container"><input class="form-textbox validate[required]" type="tel" name="CountryCode" value="{{CountryCode}}" id="input_4_area" size="3">
+            -
+            <label class="form-sub-label" for="input_4_area" id="sublabel_area">
+			Country Code</label></span><span class="form-sub-label-container"><input class="form-textbox validate[required]" type="tel" name="Contact" id="input_4_phone" value="{{Contact}}" size="8">
+            <label class="form-sub-label" for="input_4_phone" id="sublabel_phone">
+			- Cellphone</label></span>
+        </div>
+      </li>
+      <li class="form-line" id="id_8">
+        <label class="form-label-left" id="label_8" for="input_8"> Profile </label>
+        <div id="cid_8" class="form-input">
+          <textarea id="input_8" class="form-textarea" name="Profile" cols="40" rows="6">{{Profile}}</textarea>
+        </div>
+      </li>
+      <li class="form-line" id="id_6">
+        <label class="form-label-left" id="label_6" for="input_6"> Profile 
+		Picture </label>
+        <div id="cid_6" class="form-input">
+          <input class="form-upload" type="file" id="input_6" name="ProfilePic" file-accept="jpg, jpeg, png, gif" file-maxsize="10240" />
+        </div>
+      </li>
+      <li class="form-line" id="id_2">
+        <div id="cid_2" class="form-input-wide">
+          <div style="text-align:left" class="form-buttons-wrapper">
+            <button id="input_2" type="submit" class="form-submit-button">
+              Submit Form
+            </button>
+              &nbsp;
+            <button id="input_reset_2" type="reset" class="form-submit-reset">
+              Clear Form
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</form>

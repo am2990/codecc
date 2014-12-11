@@ -1,0 +1,145 @@
+﻿/*
+  project: CSS - table design
+  type: stylesheet
+  description: foggycountry
+*/
+* {
+margin: 0;
+}
+
+html, body {
+background-color:#ffFFff;
+height: 100%;
+}
+
+.wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -4em;
+}
+
+.footer, .push {
+clear:both;
+height: 4em;
+}
+
+
+p {
+  /*padding: 0 .4em .4em;  */
+  text-align: left;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333333;
+  background: transparent;
+}
+
+#normal {
+  /*padding: 0 .4em .4em;  */
+  text-align: left;
+  font-size: 1em;
+  font: normal 13px verdana, arial, helvetica, sans-serif;
+  color: #ff3333;
+  background: transparent;
+}
+
+#p2R {
+  /*padding: 0 .4em .4em;  */
+  text-align: right;
+  font-size: 1em;
+  font-weight: bold;
+  font: normal 13px verdana, arial, helvetica, sans-serif;
+  text-transform: uppercase;
+  color: #333333;
+  background: transparent;
+}
+
+#p2c {
+  /*padding: 0 .4em .4em;  */
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333333;
+  background: transparent;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid #C5BA85;
+  font: normal 11px verdana, arial, helvetica, sans-serif;
+  color: #333333;
+  background: #BFE756;
+  }
+table.invi {font: normal 13px verdana, arial, helvetica, sans-serif; background:transparent; 
+background-color:transparent; border:0px; width:100%; border-color:transparent;
+}
+table.normal {margin-left:auto; margin-right:auto; width:70%;}
+
+caption {
+  padding: 0 .4em .4em;
+  text-align: left;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333333;
+  background: transparent;
+  }
+
+td.invi, th.invi {
+  border:0px
+  transparent;
+  padding: .3em;
+  }
+
+td, th {
+  color: #636363;
+  border: 1px solid #cc9;
+  padding: .3em;
+  }
+thead th, tfoot th {
+  font: normal 12px georgia, verdana, arial, helvetica, sans-serif;
+  border: transparent;
+  text-align: left;
+  font-size: 1em;
+  font-weight: bold;
+  color: #333333;
+  background: #C5BA85;
+  }
+tbody td a {
+  background: transparent;
+  color: #72724c;
+  text-decoration: none;
+  }
+tbody td a:hover {
+  background: transparent;
+  color: #636363;
+  }
+tbody th a {
+  font: normal 12px georgia, verdana, arial, helvetica, sans-serif;
+  background: transparent;
+  color: #333333;
+  text-decoration: none;
+  font-weight:normal;
+  }
+tbody th a:hover {
+  background: transparent;
+  color: #333333;
+  }
+tbody th, tbody td {
+  vertical-align: top;
+  text-align: left;
+  }
+tfoot td {
+  border: 1px solid #C5BA85;
+  background: #C5BA85;
+  }
+tbody tr:hover {
+  color: #333444;
+  background: #DDCFAE;
+  }
+tbody tr:hover th,
+tbody tr.odd:hover th {
+  background: #C5BA85;
+  }

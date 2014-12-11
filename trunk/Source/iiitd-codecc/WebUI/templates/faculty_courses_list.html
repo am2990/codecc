@@ -1,0 +1,37 @@
+{% extends "../base.html" %}
+
+{% block title %}IIITD-CODECC - {{firstname}} {{lastname}}'s courses{% endblock %}
+
+{% block menu %}
+<div id="header">
+		<div id="menu">
+			<ul>
+				{% for men in menu %}
+				<li><a href="{{men[1]}}" >{{men[0]}}</a></li>
+				{% endfor %}
+			</ul>
+</div>
+{% endblock %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<table class="normal" width="60%">
+{% for course in courses %}
+<tr>
+<td>
+{{course}}
+</td>
+<th>
+experiments
+</th>
+<td>
+
+</td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}
+

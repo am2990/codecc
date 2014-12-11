@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+ <title>{% block title %}{% endblock %}</title>
+
+<link href="../css/winterblues.css" rel="stylesheet" type="text/css" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<body>
+<div id="logo">
+<br>
+		<img src='../images/header_logo.png' alt="" height="95"/ >
+</div>
+	
+
+{%block menu%}{% endblock %} 
+<table class="invi">
+<td>
+<div id="normal">Welcome {{firstname}} {{lastname}} {{email}}
+<br>
+<a href={{logout_url}}>Sign Out</a>
+</div>
+</td>
+<td>
+<div id="p2R">{{semester}}
+<br>
+<a href="/EditProfile">Profile</a>
+</div>
+</td>
+</table>
+<hr/>
+
+{%block content%}{% endblock %} 
+
+
+
+<div class="footer">
+{% block footer %}
+<div id="p2c">#!/iiitd/cse300/KernelCrashers</div>
+{% endblock %}
+</div>
+
+
+</body>
